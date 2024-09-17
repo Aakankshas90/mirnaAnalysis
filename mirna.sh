@@ -61,23 +61,9 @@ process_dataset() {
     done
 }
 
-# Step 1: Data Preprocessing for Case and Control datasets
+Data Preprocessing for Case and Control datasets
 echo "Processing case datasets..."
 process_dataset "$case_dir"
 
 echo "Processing control datasets..."
 process_dataset "$control_dir"
-
-# Step 2: Differential Expression Analysis using DESeq2
-echo "Running Differential Expression Analysis with DESeq2"
-Rscript run_deseq2.R || { echo "DESeq2 analysis failed" >> "global_error.log"; }
-
-# Step 3: Meta-Analysis using Metafor in R
-echo "Running Meta-Analysis with Metafor"
-Rscript run_meta_analysis.R || { echo "Meta-Analysis failed" >> "global_error.log"; }
-
-# Step 4: Functional Enrichment Analysis
-echo "Running Functional Enrichment Analysis"
-Rscript run_functional_enrichment.R || { echo "Functional Enrichment Analysis failed" >> "global_error.log"; }
-
-echo "Pipeline execution completed."
