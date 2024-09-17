@@ -17,7 +17,7 @@ file_extension=".fastq.gz"  # Adjust if using different extension
 log_file="pipeline.log"
 
 # Clear the log file if it exists
-> "$log_file"
+true > "$log_file"
 
 # Check if required tools are in PATH
 for tool in fastqc fastp mapper.pl miRDeep2.pl; do
