@@ -40,11 +40,13 @@ process_dataset() {
             echo "Processing subfolder: $subfolder" | tee -a "$log_file"
 
             # Quality Control using FastQC and MultiQC
+            if [ ! -e "$trimmed_file" ]; then
             echo "Running FastQC on $subfolder" | tee -a "$log_file"
             fastqc -o "$results_dir" "${subfolder}"/*"${file_extension}" >> "$log_file" 2>&1 || {
                 echo "FastQC failed for $subfolder" | tee -a "$log_file"
                 continue
             }
+            fi
 
             # Run adapter trimming and alignment in parallel
             for fastq_file in "${subfolder}"/*"${file_extension}"; do
@@ -57,18 +59,22 @@ process_dataset() {
 
                     # Adapter trimming using fastp
                     (
+                        if [ ! -e "$trimmed_file" ]; then
                         echo "Running fastp on $fastq_file" | tee -a "$log_file"
                         fastp -i "$fastq_file" -o "$trimmed_file" >> "$log_file" 2>&1 || {
                             echo "fastp failed for $fastq_file" | tee -a "$log_file"
                             exit 1
                         }
+                        fi
 
                         # miRNA alignment and quantification using miRDeep2
+                        if [ ! -e "$arf_file" ]; then
                         echo "Running miRDeep2 (mapper.pl) on $trimmed_file" | tee -a "$log_file"
                         mapper.pl "$trimmed_file" -e -h -i -j -m -p "$bowtie_index" -s "$mapped_file" -t "$arf_file" >> "$log_file" 2>&1 || {
                             echo "miRDeep2 mapper failed for $trimmed_file" | tee -a "$log_file"
                             exit 1
                         }
+                        fi
 
                         # Run miRDeep2 for miRNA prediction and quantification
                         echo "Running miRDeep2 on $arf_file" | tee -a "$log_file"
