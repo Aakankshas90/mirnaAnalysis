@@ -11,7 +11,7 @@ miRbase_file="/Volumes/New Volume 1/mirnaAnalysis/miRNA.gff3"
 mature_rna="/Volumes/New Volume 1/mirnaAnalysis/mature_human.fa"
 hairpin_rna="/Volumes/New Volume 1/mirnaAnalysis/hairpin_human.fa"
 mirna_gff="/Volumes/New Volume 1/mirnaAnalysis/miRNA.gff3"
-file_extension=".fastq.gz"
+file_extension=".fastq.gz"  # Adjust if using different extension
 
 # Function to run the pipeline on each dataset
 process_dataset() {
@@ -28,7 +28,7 @@ process_dataset() {
             # Quality Control using FastQC and MultiQC
             echo "Running FastQC on $subfolder"
             fastqc -o "$results_dir" "${subfolder}"/*"${file_extension}" || {
-                echo FastQC failed for $subfolder" >> "${results_dir}/error.log"
+                echo "FastQC failed for $subfolder" >> "${results_dir}/error.log"
                 continue
             }
 
@@ -43,7 +43,7 @@ process_dataset() {
 
                     # Adapter trimming using fastp
                     (
-                        echo "$Running fastp on $fastq_file"
+                        echo "Running fastp on $fastq_file"
                         fastp -i "$fastq_file" -o "$trimmed_file" || {
                             echo "fastp failed for $fastq_file" >> "${results_dir}/error.log"
                             exit 1
