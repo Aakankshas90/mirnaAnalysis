@@ -3,14 +3,14 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # Paths to case and control datasets
-case_dir="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/case"
-control_dir="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/control"
-bowtie_index="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/hg38_reference"
-ref_genome="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/hg38.fa"
-miRbase_file="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/miRNA.gff3"
-mature_rna="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/mature_human.fa"
-hairpin_rna="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/hairpin_human.fa"
-mirna_gff="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/miRNA.gff3"
+case_dir="/Volumes/New Volume 1/mirnaAnalysis/case"
+control_dir="/Volumes/New Volume 1/mirnaAnalysis/control"
+bowtie_index="/Volumes/New Volume 1/mirnaAnalysis/hg38_reference"
+ref_genome="/Volumes/New Volume 1/mirnaAnalysis/hg38_reference/hg38.fa"
+miRbase_file="/Volumes/New Volume 1/mirnaAnalysis/miRNA.gff3"
+mature_rna="/Volumes/New Volume 1/mirnaAnalysis/mature_human.fa"
+hairpin_rna="/Volumes/New Volume 1/mirnaAnalysis/hairpin_human.fa"
+mirna_gff="/Volumes/New Volume 1/mirnaAnalysis/miRNA.gff3"
 file_extension=".fastq.gz"  # Adjust if using different extension
 
 # Function to run the pipeline on each dataset
@@ -32,7 +32,8 @@ process_dataset() {
 
             for fastq_file in "${subfolder}"/*"${file_extension}"; do
                 if [ -e "$fastq_file" ]; then
-                    local sample_name=$(basename "$fastq_file" "$file_extension")
+                    local sample_name
+                    sample_name=$(basename "$fastq_file" "$file_extension")
                     local trimmed_file="${results_dir}/${sample_name}_trimmed.fastq.gz"
                     local arf_file="${results_dir}/${sample_name}.arf"
                     local mapped_file="${results_dir}/${sample_name}.fa"
@@ -47,7 +48,7 @@ process_dataset() {
 
                     # run miRDeep2 for miRNA prediction and quantification.
                     echo "Running miRDeep2 on $arf_file"
-                    miRDeep2.pl "$mapped_file" "ref_genome" "$miRbase_file" "$mature_rna" "$hairpin_rna" "$arf_file" "$mirna_gff" "${mirdeep_out}"  || { echo "miRDeep2 failed for $arf_file" >> "$mirdeep_out/error.log"; continue; }
+                    miRDeep2.pl "$mapped_file" "$ref_genome" "$miRbase_file" "$mature_rna" "$hairpin_rna" "$arf_file" "$mirna_gff" "${mirdeep_out}"  || { echo "miRDeep2 failed for $arf_file" >> "$mirdeep_out/error.log"; continue; }
 
 
                     echo "Successfully processed $sample_name"
@@ -61,7 +62,7 @@ process_dataset() {
     done
 }
 
-Data Preprocessing for Case and Control datasets
+# Data Preprocessing for Case and Control datasets
 echo "Processing case datasets..."
 process_dataset "$case_dir"
 
