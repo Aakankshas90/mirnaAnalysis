@@ -45,12 +45,12 @@ process_dataset() {
                     (
                         echo "$Running fastp on $fastq_file"
                         fastp -i "$fastq_file" -o "$trimmed_file" || {
-                            echo "$fastp failed for $fastq_file" >> "${results_dir}/error.log"
+                            echo "fastp failed for $fastq_file" >> "${results_dir}/error.log"
                             exit 1
                         }
 
                         # miRNA alignment and quantification using miRDeep2
-                        echo "$Running miRDeep2 (mapper.pl) on $trimmed_file"
+                        echo "Running miRDeep2 (mapper.pl) on $trimmed_file"
                         mapper.pl "$trimmed_file" -e -h -i -j -m -p "$bowtie_index" -s "$mapped_file" -t "$arf_file" || {
                             echo "miRDeep2 mapper failed for $trimmed_file" >> "${results_dir}/error.log"
                             exit 1
