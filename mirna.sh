@@ -11,15 +11,7 @@ miRbase_file="/Volumes/New Volume 1/mirnaAnalysis/miRNA.gff3"
 mature_rna="/Volumes/New Volume 1/mirnaAnalysis/mature_human.fa"
 hairpin_rna="/Volumes/New Volume 1/mirnaAnalysis/hairpin_human.fa"
 mirna_gff="/Volumes/New Volume 1/mirnaAnalysis/miRNA.gff3"
-file_extension=".fastq.gz"  # Adjust if using different extension
-
-# Check if required tools are in PATH
-for tool in fastqc fastp mapper.pl miRDeep2.pl; do
-    if ! command -v "$tool" &> /dev/null; then
-        echo "$(date): Error: $tool is not installed or not in PATH." >&2
-        exit 1
-    fi
-done
+file_extension=".fastq.gz"
 
 # Function to run the pipeline on each dataset
 process_dataset() {
@@ -31,12 +23,12 @@ process_dataset() {
             mkdir -p "$results_dir"
             local mirdeep_out="${results_dir}/mirdeep_out"
             mkdir -p "$mirdeep_out"
-            echo "$(date): Processing subfolder: $subfolder"
+            echo "Processing subfolder: $subfolder"
 
             # Quality Control using FastQC and MultiQC
-            echo "$(date): Running FastQC on $subfolder"
+            echo "Running FastQC on $subfolder"
             fastqc -o "$results_dir" "${subfolder}"/*"${file_extension}" || {
-                echo "$(date): FastQC failed for $subfolder" >> "${results_dir}/error.log"
+                echo FastQC failed for $subfolder" >> "${results_dir}/error.log"
                 continue
             }
 
@@ -51,45 +43,45 @@ process_dataset() {
 
                     # Adapter trimming using fastp
                     (
-                        echo "$(date): Running fastp on $fastq_file"
+                        echo "$Running fastp on $fastq_file"
                         fastp -i "$fastq_file" -o "$trimmed_file" || {
-                            echo "$(date): fastp failed for $fastq_file" >> "${results_dir}/error.log"
+                            echo "$fastp failed for $fastq_file" >> "${results_dir}/error.log"
                             exit 1
                         }
 
                         # miRNA alignment and quantification using miRDeep2
-                        echo "$(date): Running miRDeep2 (mapper.pl) on $trimmed_file"
+                        echo "$Running miRDeep2 (mapper.pl) on $trimmed_file"
                         mapper.pl "$trimmed_file" -e -h -i -j -m -p "$bowtie_index" -s "$mapped_file" -t "$arf_file" || {
-                            echo "$(date): miRDeep2 mapper failed for $trimmed_file" >> "${results_dir}/error.log"
+                            echo "miRDeep2 mapper failed for $trimmed_file" >> "${results_dir}/error.log"
                             exit 1
                         }
 
                         # Run miRDeep2 for miRNA prediction and quantification
-                        echo "$(date): Running miRDeep2 on $arf_file"
+                        echo "Running miRDeep2 on $arf_file"
                         miRDeep2.pl "$mapped_file" "$ref_genome" "$miRbase_file" "$mature_rna" "$hairpin_rna" "$arf_file" "$mirna_gff" "${mirdeep_out}" || {
-                            echo "$(date): miRDeep2 failed for $arf_file" >> "${mirdeep_out}/error.log"
+                            echo "miRDeep2 failed for $arf_file" >> "${mirdeep_out}/error.log"
                             exit 1
                         }
 
-                        echo "$(date): Successfully processed $sample_name"
+                        echo "Successfully processed $sample_name"
                     ) & # Run in background
 
                 else
-                    echo "$(date): No files found with extension $file_extension in $subfolder"
+                    echo "No files found with extension $file_extension in $subfolder"
                 fi
             done
 
             # Wait for all background processes to complete
             wait
         else
-            echo "$(date): No subfolders found in $input_dir"
+            echo "No subfolders found in $input_dir"
         fi
     done
 }
 
 # Data Preprocessing for Case and Control datasets
-echo "$(date): Processing case datasets..."
+echo "Processing case datasets..."
 process_dataset "$case_dir"
 
-echo "$(date): Processing control datasets..."
+echo "Processing control datasets..."
 process_dataset "$control_dir"
