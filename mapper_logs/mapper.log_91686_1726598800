@@ -1,0 +1,2 @@
+current dir:	/Users/balgovindyadav/Downloads/Aakanksha/github/mirnaAnalysis
+mapper command:	/Users/balgovindyadav/opt/anaconda3/bin/mapper.pl /Volumes/New Volume 1/mirnaAnalysis/control/PRJNA956559//results/SRR24196197_1_trimmed.fastq.gz -e -h -i -j -m -p /Volumes/New Volume 1/mirnaAnalysis/hg38_reference -s /Volumes/New Volume 1/mirnaAnalysis/control/PRJNA956559//results/SRR24196197_1.fa -t /Volumes/New Volume 1/mirnaAnalysis/control/PRJNA956559//results/SRR24196197_1.arf
