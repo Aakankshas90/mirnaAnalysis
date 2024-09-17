@@ -40,13 +40,11 @@ process_dataset() {
             echo "Processing subfolder: $subfolder" | tee -a "$log_file"
 
             # Quality Control using FastQC and MultiQC
-            if [ ! -e "$trimmed_file" ]; then
             echo "Running FastQC on $subfolder" | tee -a "$log_file"
             fastqc -o "$results_dir" "${subfolder}"/*"${file_extension}" >> "$log_file" 2>&1 || {
                 echo "FastQC failed for $subfolder" | tee -a "$log_file"
                 continue
             }
-            fi
 
             # Run adapter trimming and alignment in parallel
             for fastq_file in "${subfolder}"/*"${file_extension}"; do
