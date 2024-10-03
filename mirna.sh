@@ -3,9 +3,9 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # Paths to directories and files
-case_dir="/mnt/d/mirnaseq/case"
-control_dir="/mnt/d/mirnaseq/control"
-bowtie_index="/mnt/d/mirnaseq/hg38_reference/hg38_index"
+case_dir="/mnt/d/setolabo/case"
+control_dir="/mnt/d/setolabo/control"
+bowtie_index="/mnt/d/setolabo/hg38_reference/hg38_index"
 file_extension=".fastq.gz"
 log_file="mirna_pipeline.log"
 
@@ -27,7 +27,7 @@ process_file() {
     local results_mirdeep2="$subfolder/results_mapper"
     local file_base
     file_base=$(basename "$input_file" "$file_extension")
-    local fastp_output="$results_qc/${file_base}_trimmed.fastq.gz"
+    local trimmomatic_output="$results_qc/${file_base}_trimmed.fastq.gz"
     
     mkdir -p "$results_qc" "$results_mirdeep2"
     
@@ -40,32 +40,30 @@ process_file() {
         echo "FastQC already completed for $input_file" | tee -a "$log_file"
     fi
     
-    # Step 2: fastp
-    if [[ ! -f "$fastp_output" ]]; then
-        echo "Running fastp on $input_file" | tee -a "$log_file"
-        fastp -i "$input_file" -o "$fastp_output" \
-              -h "$results_qc/${file_base}_fastp.html" \
-              -j "$results_qc/${file_base}_fastp.json" -w 4 >> "$log_file" 2>&1 || { log_failure "fastp" "$input_file"; return 1; }
+    # Step 2: trimmomatic
+    if [[ ! -f "$trimmomatic_output" ]]; then
+        echo "Running trimmomatic on $input_file" | tee -a "$log_file"
+    trimmomatic SE "$input_file" "$trimmomatic_output" ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16 >> "$log_file" 2>&1 || { log_failure "trimmomatic" "$input_file"; return 1; }
     else
-        echo "fastp already completed for $input_file" | tee -a "$log_file"
+        echo "trimmomatic already completed for $input_file" | tee -a "$log_file"
     fi
 
-    # Uncompress fastp output
-    gunzip "$fastp_output" || { log_failure "Unzipping fastp output" "$input_file"; return 1; }
-    fastp_uncompressed="${fastp_output%.gz}"
+    # Uncompress trimmomatic output
+    gunzip "$trimmomatic_output" || { log_failure "Unzipping trimmomatic output" "$input_file"; return 1; }
+    trimmomatic_uncompressed="${trimmomatic_output%.gz}"
 
     # Step 3: mapper.pl
     local mapper_output="$results_mirdeep2/${file_base}_collapsed.fa"
     if [[ ! -f "$mapper_output" ]]; then
-        echo "Running mapper.pl on $fastp_uncompressed" | tee -a "$log_file"
-        mapper.pl "$fastp_uncompressed" -e -h -i -m -j -l 18 -v -q -r 10 -o 4 \
+        echo "Running mapper.pl on $trimmomatic_uncompressed" | tee -a "$log_file"
+        mapper.pl "$trimmomatic_uncompressed" -e -h -i -m -j -l 18 -v -q -r 10 -o 4 \
               -s "$mapper_output" \
               -t "$results_mirdeep2/${file_base}_reads_vs_ref.arf" -p "$bowtie_index" >> "$log_file" 2>&1 || { log_failure "mapper.pl" "$input_file"; return 1; }
     else
         echo "mapper.pl already completed for $input_file" | tee -a "$log_file"
     fi
     
-    gzip "$fastp_uncompressed" || { log_failure "Recompressing fastp output" "$input_file"; return 1; }
+    gzip "$trimmomatic_uncompressed" || { log_failure "Recompressing trimmomatic output" "$input_file"; return 1; }
 }
 
 # Function to process all subfolders in a directory (case or control)
