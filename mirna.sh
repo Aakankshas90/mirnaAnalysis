@@ -2,104 +2,87 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# Paths to case and control datasets
-case_dir="/Volumes/New Volume 1/mirnaAnalysis/case"
-control_dir="/Volumes/New Volume 1/mirnaAnalysis/control"
-bowtie_index="/Volumes/New Volume 1/mirnaAnalysis/hg38_reference"
-ref_genome="/Volumes/New Volume 1/mirnaAnalysis/hg38_reference/hg38.fa"
-miRbase_file="/Volumes/New Volume 1/mirnaAnalysis/miRNA.gff3"
-mature_rna="/Volumes/New Volume 1/mirnaAnalysis/mature_human.fa"
-hairpin_rna="/Volumes/New Volume 1/mirnaAnalysis/hairpin_human.fa"
-mirna_gff="/Volumes/New Volume 1/mirnaAnalysis/miRNA.gff3"
-file_extension=".fastq.gz"  # Adjust if using different extension
+# Paths to directories and files
+case_dir="/mnt/d/mirnaseq/case"
+control_dir="/mnt/d/mirnaseq/control"
+bowtie_index="/mnt/d/mirnaseq/hg38_reference/hg38_index"
+file_extension=".fastq.gz"
+log_file="mirna_pipeline.log"
 
-# Define log file
-log_file="pipeline.log"
+# Log file creation
+echo "Starting miRNA-seq pipeline" | tee -a "$log_file"
 
-# Clear the log file if it exists
-true > "$log_file"
+# Function to log the failure message
+log_failure() {
+    local step="$1"
+    local input_file="$2"
+    echo "Error: $step failed for $input_file" | tee -a "$log_file"
+}
 
-# Check if required tools are in PATH
-for tool in fastqc fastp mapper.pl miRDeep2.pl; do
-    if ! command -v "$tool" &> /dev/null; then
-        echo "Error: $tool is not installed or not in PATH." | tee -a "$log_file" >&2
-        exit 1
+# Function to process a single file
+process_file() {
+    local input_file="$1"
+    local subfolder="$2"
+    local results_qc="$subfolder/results_qc"
+    local results_mirdeep2="$subfolder/results_mapper"
+    local file_base
+    file_base=$(basename "$input_file" "$file_extension")
+    local fastp_output="$results_qc/${file_base}_trimmed.fastq.gz"
+    
+    mkdir -p "$results_qc" "$results_mirdeep2"
+    
+    # Step 1: FastQC
+    local fastqc_output="$results_qc/${file_base}_fastqc.zip"
+    if [[ ! -f "$fastqc_output" ]]; then
+        echo "Running FastQC on $input_file" | tee -a "$log_file"
+        fastqc -o "$results_qc" "$input_file" -t 4 >> "$log_file" 2>&1 || { log_failure "FastQC" "$input_file"; return 1; }
+    else
+        echo "FastQC already completed for $input_file" | tee -a "$log_file"
     fi
-done
+    
+    # Step 2: fastp
+    if [[ ! -f "$fastp_output" ]]; then
+        echo "Running fastp on $input_file" | tee -a "$log_file"
+        fastp -i "$input_file" -o "$fastp_output" \
+              -h "$results_qc/${file_base}_fastp.html" \
+              -j "$results_qc/${file_base}_fastp.json" -w 4 >> "$log_file" 2>&1 || { log_failure "fastp" "$input_file"; return 1; }
+    else
+        echo "fastp already completed for $input_file" | tee -a "$log_file"
+    fi
 
-# Function to run the pipeline on each dataset
-process_dataset() {
-    local input_dir=$1
+    # Uncompress fastp output
+    gunzip "$fastp_output" || { log_failure "Unzipping fastp output" "$input_file"; return 1; }
+    fastp_uncompressed="${fastp_output%.gz}"
 
-    for subfolder in "$input_dir"/*/; do
-        if [ -d "$subfolder" ]; then
-            local results_dir="${subfolder}/results"
-            mkdir -p "$results_dir"
-            local mirdeep_out="${results_dir}/mirdeep_out"
-            mkdir -p "$mirdeep_out"
-            echo "Processing subfolder: $subfolder" | tee -a "$log_file"
+    # Step 3: mapper.pl
+    local mapper_output="$results_mirdeep2/${file_base}_collapsed.fa"
+    if [[ ! -f "$mapper_output" ]]; then
+        echo "Running mapper.pl on $fastp_uncompressed" | tee -a "$log_file"
+        mapper.pl "$fastp_uncompressed" -e -h -i -m -j -l 18 -v -q -r 10 -o 4 \
+              -s "$mapper_output" \
+              -t "$results_mirdeep2/${file_base}_reads_vs_ref.arf" -p "$bowtie_index" >> "$log_file" 2>&1 || { log_failure "mapper.pl" "$input_file"; return 1; }
+    else
+        echo "mapper.pl already completed for $input_file" | tee -a "$log_file"
+    fi
+    
+    gzip "$fastp_uncompressed" || { log_failure "Recompressing fastp output" "$input_file"; return 1; }
+}
 
-            # Quality Control using FastQC and MultiQC
-            echo "Running FastQC on $subfolder" | tee -a "$log_file"
-            fastqc -o "$results_dir" "${subfolder}"/*"${file_extension}" >> "$log_file" 2>&1 || {
-                echo "FastQC failed for $subfolder" | tee -a "$log_file"
-                continue
-            }
-
-            # Run adapter trimming and alignment in parallel
-            for fastq_file in "${subfolder}"/*"${file_extension}"; do
-                if [ -e "$fastq_file" ]; then
-                    local sample_name
-                    sample_name=$(basename "$fastq_file" "$file_extension")
-                    local trimmed_file="${results_dir}/${sample_name}_trimmed.fastq.gz"
-                    local arf_file="${results_dir}/${sample_name}.arf"
-                    local mapped_file="${results_dir}/${sample_name}.fa"
-
-                    # Adapter trimming using fastp
-                    (
-                        if [ ! -e "$trimmed_file" ]; then
-                        echo "Running fastp on $fastq_file" | tee -a "$log_file"
-                        fastp -i "$fastq_file" -o "$trimmed_file" >> "$log_file" 2>&1 || {
-                            echo "fastp failed for $fastq_file" | tee -a "$log_file"
-                            exit 1
-                        }
-                        fi
-
-                        # miRNA alignment and quantification using miRDeep2
-                        if [ ! -e "$arf_file" ]; then
-                        echo "Running miRDeep2 (mapper.pl) on $trimmed_file" | tee -a "$log_file"
-                        mapper.pl "$trimmed_file" -e -h -i -j -m -p "$bowtie_index" -s "$mapped_file" -t "$arf_file" >> "$log_file" 2>&1 || {
-                            echo "miRDeep2 mapper failed for $trimmed_file" | tee -a "$log_file"
-                            exit 1
-                        }
-                        fi
-
-                        # Run miRDeep2 for miRNA prediction and quantification
-                        echo "Running miRDeep2 on $arf_file" | tee -a "$log_file"
-                        miRDeep2.pl "$mapped_file" "$ref_genome" "$miRbase_file" "$mature_rna" "$hairpin_rna" "$arf_file" "$mirna_gff" "${mirdeep_out}" >> "$log_file" 2>&1 || {
-                            echo "miRDeep2 failed for $arf_file" | tee -a "$log_file"
-                            exit 1
-                        }
-
-                        echo "Successfully processed $sample_name" | tee -a "$log_file"
-                    ) & # Run in background
-
-                else
-                    echo "No files found with extension $file_extension in $subfolder" | tee -a "$log_file"
-                fi
-            done
-
-            # Wait for all background processes to complete
-            wait
-        else
-            echo "No subfolders found in $input_dir" | tee -a "$log_file"
-        fi
+# Function to process all subfolders in a directory (case or control)
+process_directory() {
+    local dir="$1"
+    
+    for subfolder in "$dir"/*/; do
+        echo "Processing subfolder $subfolder" | tee -a "$log_file"
+        for file in "$subfolder"/*"$file_extension"; do
+            echo "Processing file $file in $subfolder" | tee -a "$log_file"
+            process_file "$file" "$subfolder" || echo "Pipeline failed for $file." | tee -a "$log_file"
+        done
     done
 }
 
-# Data Preprocessing for Case and Control datasets
-echo "Processing case datasets..." | tee -a "$log_file"
-process_dataset "$case_dir"
+# Start processing case and control directories
+process_directory "$case_dir"
+process_directory "$control_dir"
 
-echo "Processing control datasets..." | tee -a "$log_file"
-process_dataset "$control_dir"
+echo "Pipeline completed" | tee -a "$log_file"
