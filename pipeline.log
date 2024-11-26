@@ -1,2 +1,910 @@
-Processing case datasets...
-Processing subfolder: /Volumes/New Volume 1/mirnaAnalysis/case/PRJNA347596/
+Starting miRNA-seq pipeline
+Processing subfolder /mnt/d/setolabo/case/PRJNA347596/
+Processing file /mnt/d/setolabo/case/PRJNA347596//SRR4409202_1.fastq.gz in /mnt/d/setolabo/case/PRJNA347596/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA347596//SRR4409202_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA347596//SRR4409202_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA347596//SRR4409202_1.fastq.gz /mnt/d/setolabo/case/PRJNA347596//results_qc/SRR4409202_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 35364142 Surviving: 33843012 (95.70%) Dropped: 1521130 (4.30%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA347596//results_qc/SRR4409202_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_125
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 33337665	13971297	19366368	41.908	58.092
+seq: 33337665	13971297	19366368	41.908	58.092
+Processing file /mnt/d/setolabo/case/PRJNA347596//SRR4409204_1.fastq.gz in /mnt/d/setolabo/case/PRJNA347596/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA347596//SRR4409204_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA347596//SRR4409204_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA347596//SRR4409204_1.fastq.gz /mnt/d/setolabo/case/PRJNA347596//results_qc/SRR4409204_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 41518466 Surviving: 41368897 (99.64%) Dropped: 149569 (0.36%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA347596//results_qc/SRR4409204_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_195
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 41299060	18643868	22655192	45.144	54.856
+seq: 41299060	18643868	22655192	45.144	54.856
+Processing subfolder /mnt/d/setolabo/case/PRJNA350003/
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444371_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444371_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444371_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444371_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444371_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 6334027 Surviving: 5005843 (79.03%) Dropped: 1328184 (20.97%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444371_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_265
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 4660561	3239397	1421164	69.507	30.493
+seq: 4660561	3239397	1421164	69.507	30.493
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444373_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444373_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444373_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444373_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444373_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 1677796 Surviving: 1102962 (65.74%) Dropped: 574834 (34.26%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444373_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_333
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 1031254	524286	506968	50.840	49.160
+seq: 1031254	524286	506968	50.840	49.160
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444375_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444375_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444375_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444375_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444375_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 5041789 Surviving: 3412132 (67.68%) Dropped: 1629657 (32.32%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444375_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_402
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 3205415	1954073	1251342	60.962	39.038
+seq: 3205415	1954073	1251342	60.962	39.038
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444377_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444377_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444377_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444377_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444377_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 4336599 Surviving: 3584403 (82.65%) Dropped: 752196 (17.35%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444377_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_470
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 3367714	1601632	1766082	47.558	52.442
+seq: 3367714	1601632	1766082	47.558	52.442
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444379_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444379_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444379_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444379_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444379_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 1542481 Surviving: 1142006 (74.04%) Dropped: 400475 (25.96%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444379_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_539
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 1092535	708147	384388	64.817	35.183
+seq: 1092535	708147	384388	64.817	35.183
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444381_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444381_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444381_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444381_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444381_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 1534546 Surviving: 401234 (26.15%) Dropped: 1133312 (73.85%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444381_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_607
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 332882	116479	216403	34.991	65.009
+seq: 332882	116479	216403	34.991	65.009
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444383_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444383_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444383_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444383_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444383_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 24135582 Surviving: 20480604 (84.86%) Dropped: 3654978 (15.14%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444383_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_675
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 19552605	13416380	6136225	68.617	31.383
+seq: 19552605	13416380	6136225	68.617	31.383
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444385_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444385_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444385_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444385_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444385_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 6257322 Surviving: 4782340 (76.43%) Dropped: 1474982 (23.57%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444385_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_743
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 4387266	2578112	1809154	58.764	41.236
+seq: 4387266	2578112	1809154	58.764	41.236
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444387_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444387_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444387_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444387_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444387_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 9127489 Surviving: 7315917 (80.15%) Dropped: 1811572 (19.85%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444387_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_811
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 6846901	4881991	1964910	71.302	28.698
+seq: 6846901	4881991	1964910	71.302	28.698
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444389_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444389_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444389_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444389_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444389_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 17444190 Surviving: 14598276 (83.69%) Dropped: 2845914 (16.31%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444389_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_879
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 13738359	9473689	4264670	68.958	31.042
+seq: 13738359	9473689	4264670	68.958	31.042
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444391_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444391_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444391_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444391_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444391_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 5990438 Surviving: 4521024 (75.47%) Dropped: 1469414 (24.53%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444391_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_948
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 4097038	2731701	1365337	66.675	33.325
+seq: 4097038	2731701	1365337	66.675	33.325
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444393_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444393_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444393_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444393_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444393_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 14973189 Surviving: 12919499 (86.28%) Dropped: 2053690 (13.72%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444393_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1016
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 12369951	6943094	5426857	56.129	43.871
+seq: 12369951	6943094	5426857	56.129	43.871
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444395_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444395_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444395_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444395_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444395_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 11212906 Surviving: 8239091 (73.48%) Dropped: 2973815 (26.52%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444395_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1084
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 7499120	5185519	2313601	69.148	30.852
+seq: 7499120	5185519	2313601	69.148	30.852
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444397_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444397_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444397_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444397_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444397_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 11630076 Surviving: 9649671 (82.97%) Dropped: 1980405 (17.03%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444397_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1152
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 8980637	6484902	2495735	72.210	27.790
+seq: 8980637	6484902	2495735	72.210	27.790
+Processing file /mnt/d/setolabo/case/PRJNA350003//SRR4444399_1.fastq.gz in /mnt/d/setolabo/case/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/case/PRJNA350003//SRR4444399_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA350003//SRR4444399_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA350003//SRR4444399_1.fastq.gz /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444399_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 9597324 Surviving: 7531682 (78.48%) Dropped: 2065642 (21.52%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/case/PRJNA350003//results_qc/SRR4444399_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1221
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 7069983	3903435	3166548	55.211	44.789
+seq: 7069983	3903435	3166548	55.211	44.789
+Processing subfolder /mnt/d/setolabo/case/PRJNA540915/
+Processing file /mnt/d/setolabo/case/PRJNA540915//*.fastq.gz in /mnt/d/setolabo/case/PRJNA540915/
+Running FastQC on /mnt/d/setolabo/case/PRJNA540915//*.fastq.gz
+Skipping '/mnt/d/setolabo/case/PRJNA540915//*.fastq.gz' which didn't exist, or couldn't be read
+Running trimmomatic on /mnt/d/setolabo/case/PRJNA540915//*.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/case/PRJNA540915//*.fastq.gz /mnt/d/setolabo/case/PRJNA540915//results_qc/*_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Exception in thread "main" java.io.FileNotFoundException: /mnt/d/setolabo/case/PRJNA540915/*.fastq.gz (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at org.usadellab.trimmomatic.fastq.FastqParser.parse(FastqParser.java:135)
+	at org.usadellab.trimmomatic.TrimmomaticSE.process(TrimmomaticSE.java:197)
+	at org.usadellab.trimmomatic.TrimmomaticSE.run(TrimmomaticSE.java:321)
+	at org.usadellab.trimmomatic.Trimmomatic.main(Trimmomatic.java:85)
+Error: trimmomatic failed for /mnt/d/setolabo/case/PRJNA540915//*.fastq.gz
+Pipeline failed for /mnt/d/setolabo/case/PRJNA540915//*.fastq.gz.
+Processing subfolder /mnt/d/setolabo/control/PRJNA347596/
+Processing file /mnt/d/setolabo/control/PRJNA347596//SRR4409201_N.fastq.gz in /mnt/d/setolabo/control/PRJNA347596/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA347596//SRR4409201_N.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA347596//SRR4409201_N.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA347596//SRR4409201_N.fastq.gz /mnt/d/setolabo/control/PRJNA347596//results_qc/SRR4409201_N_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 45234879 Surviving: 42040388 (92.94%) Dropped: 3194491 (7.06%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA347596//results_qc/SRR4409201_N_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1342
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 40668141	15676406	24991735	38.547	61.453
+seq: 40668141	15676406	24991735	38.547	61.453
+Processing file /mnt/d/setolabo/control/PRJNA347596//SRR4409203_N.fastq.gz in /mnt/d/setolabo/control/PRJNA347596/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA347596//SRR4409203_N.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA347596//SRR4409203_N.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA347596//SRR4409203_N.fastq.gz /mnt/d/setolabo/control/PRJNA347596//results_qc/SRR4409203_N_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 35041246 Surviving: 33442662 (95.44%) Dropped: 1598584 (4.56%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA347596//results_qc/SRR4409203_N_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1454
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 32551249	13500071	19051178	41.473	58.527
+seq: 32551249	13500071	19051178	41.473	58.527
+Processing subfolder /mnt/d/setolabo/control/PRJNA350003/
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444372_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444372_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444372_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444372_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444372_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 678994 Surviving: 329636 (48.55%) Dropped: 349358 (51.45%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444372_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1529
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 295072	103506	191566	35.078	64.922
+seq: 295072	103506	191566	35.078	64.922
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444374_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444374_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444374_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444374_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444374_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 321919 Surviving: 199062 (61.84%) Dropped: 122857 (38.16%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444374_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1597
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 184186	33999	150187	18.459	81.541
+seq: 184186	33999	150187	18.459	81.541
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444376_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444376_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444376_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444376_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444376_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 1779384 Surviving: 990781 (55.68%) Dropped: 788603 (44.32%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444376_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1665
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 818019	486538	331481	59.478	40.522
+seq: 818019	486538	331481	59.478	40.522
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444378_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444378_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444378_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444378_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444378_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 3059554 Surviving: 1965636 (64.25%) Dropped: 1093918 (35.75%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444378_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1733
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 1728741	991686	737055	57.365	42.635
+seq: 1728741	991686	737055	57.365	42.635
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444380_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444380_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444380_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444380_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444380_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 3060026 Surviving: 2314841 (75.65%) Dropped: 745185 (24.35%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444380_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1801
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 2194905	1637543	557362	74.607	25.393
+seq: 2194905	1637543	557362	74.607	25.393
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444382_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444382_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444382_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444382_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444382_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 2317979 Surviving: 1632760 (70.44%) Dropped: 685219 (29.56%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444382_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1869
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 1446079	1051486	394593	72.713	27.287
+seq: 1446079	1051486	394593	72.713	27.287
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444384_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444384_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444384_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444384_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444384_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 3456133 Surviving: 2327643 (67.35%) Dropped: 1128490 (32.65%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444384_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_1937
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 2089657	1368111	721546	65.471	34.529
+seq: 2089657	1368111	721546	65.471	34.529
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444386_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444386_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444386_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444386_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444386_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 4664068 Surviving: 2551619 (54.71%) Dropped: 2112449 (45.29%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444386_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_2005
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 2033764	1266085	767679	62.253	37.747
+seq: 2033764	1266085	767679	62.253	37.747
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444388_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444388_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444388_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444388_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444388_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 2192649 Surviving: 561313 (25.60%) Dropped: 1631336 (74.40%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444388_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_2073
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 461514	258362	203152	55.981	44.019
+seq: 461514	258362	203152	55.981	44.019
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444390_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444390_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444390_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444390_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444390_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 3078479 Surviving: 1544101 (50.16%) Dropped: 1534378 (49.84%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444390_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_2141
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 1174703	757128	417575	64.453	35.547
+seq: 1174703	757128	417575	64.453	35.547
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444392_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444392_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444392_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444392_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444392_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 1385881 Surviving: 782126 (56.44%) Dropped: 603755 (43.56%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444392_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_2210
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 637730	380710	257020	59.698	40.302
+seq: 637730	380710	257020	59.698	40.302
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444394_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444394_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444394_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444394_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444394_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 8305366 Surviving: 7087064 (85.33%) Dropped: 1218302 (14.67%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444394_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_2278
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 6787629	4742018	2045611	69.863	30.137
+seq: 6787629	4742018	2045611	69.863	30.137
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444396_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444396_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444396_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444396_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444396_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 2061818 Surviving: 946515 (45.91%) Dropped: 1115303 (54.09%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444396_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_2347
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 754474	450319	304155	59.686	40.314
+seq: 754474	450319	304155	59.686	40.314
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444398_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444398_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444398_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444398_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444398_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 1529716 Surviving: 1000817 (65.43%) Dropped: 528899 (34.57%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444398_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_2415
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 858840	502549	356291	58.515	41.485
+seq: 858840	502549	356291	58.515	41.485
+Processing file /mnt/d/setolabo/control/PRJNA350003//SRR4444400_1.fastq.gz in /mnt/d/setolabo/control/PRJNA350003/
+FastQC already completed for /mnt/d/setolabo/control/PRJNA350003//SRR4444400_1.fastq.gz
+Running trimmomatic on /mnt/d/setolabo/control/PRJNA350003//SRR4444400_1.fastq.gz
+TrimmomaticSE: Started with arguments:
+ /mnt/d/setolabo/control/PRJNA350003//SRR4444400_1.fastq.gz /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444400_1_trimmed.fastq.gz ILLUMINACLIP:Illumina_small_RNA_adapter.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:16
+Automatically using 4 threads
+Using Medium Clipping Sequence: 'TGGAATTCTCGGGTGCCAAGG'
+ILLUMINACLIP: Using 0 prefix pairs, 1 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 2460470 Surviving: 1828208 (74.30%) Dropped: 632262 (25.70%)
+TrimmomaticSE: Completed successfully
+Running mapper.pl on /mnt/d/setolabo/control/PRJNA350003//results_qc/SRR4444400_1_trimmed.fastq
+
+parsing fastq to fasta format
+converting rna to dna alphabet
+discarding sequences with non-canonical letters
+discarding short reads
+collapsing reads
+mapping reads to genome index
+trimming unmapped nts in the 3' ends
+Log file for this run is in mapper_logs and called mapper.log_2483
+Mapping statistics
+
+#desc	total	mapped	unmapped	%mapped	%unmapped
+total: 1695568	853153	842415	50.317	49.683
+seq: 1695568	853153	842415	50.317	49.683
+Pipeline completed
