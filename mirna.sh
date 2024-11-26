@@ -3,9 +3,9 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # Paths to directories and files
-case_dir="/mnt/d/mirnaseq/case"
-control_dir="/mnt/d/mirnaseq/control"
-bowtie_index="/mnt/d/mirnaseq/hg38_reference/hg38_index"
+case_dir="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/case/"
+control_dir="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/control"
+bowtie_index="/Users/balgovindyadav/Downloads/Aakanksha/miRNAmetaAnalysis/hg38_reference/hg38_index"
 file_extension=".fastq.gz"
 log_file="mirna_pipeline.log"
 
@@ -35,7 +35,7 @@ process_file() {
     local fastqc_output="$results_qc/${file_base}_fastqc.zip"
     if [[ ! -f "$fastqc_output" ]]; then
         echo "Running FastQC on $input_file" | tee -a "$log_file"
-        fastqc -o "$results_qc" "$input_file" -t 4 >> "$log_file" 2>&1 || { log_failure "FastQC" "$input_file"; return 1; }
+        fastqc -o "$results_qc" "$input_file" >> "$log_file" 2>&1 || { log_failure "FastQC" "$input_file"; return 1; }
     else
         echo "FastQC already completed for $input_file" | tee -a "$log_file"
     fi
@@ -45,7 +45,7 @@ process_file() {
         echo "Running fastp on $input_file" | tee -a "$log_file"
         fastp -i "$input_file" -o "$fastp_output" \
               -h "$results_qc/${file_base}_fastp.html" \
-              -j "$results_qc/${file_base}_fastp.json" -w 4 >> "$log_file" 2>&1 || { log_failure "fastp" "$input_file"; return 1; }
+              -j "$results_qc/${file_base}_fastp.json" >> "$log_file" 2>&1 || { log_failure "fastp" "$input_file"; return 1; }
     else
         echo "fastp already completed for $input_file" | tee -a "$log_file"
     fi
@@ -58,7 +58,7 @@ process_file() {
     local mapper_output="$results_mirdeep2/${file_base}_collapsed.fa"
     if [[ ! -f "$mapper_output" ]]; then
         echo "Running mapper.pl on $fastp_uncompressed" | tee -a "$log_file"
-        mapper.pl "$fastp_uncompressed" -e -h -i -m -j -l 18 -v -q -r 10 -o 4 \
+        mapper.pl "$fastp_uncompressed" -e -h -i -m -j -l 18 -v \
               -s "$mapper_output" \
               -t "$results_mirdeep2/${file_base}_reads_vs_ref.arf" -p "$bowtie_index" >> "$log_file" 2>&1 || { log_failure "mapper.pl" "$input_file"; return 1; }
     else
@@ -86,3 +86,8 @@ process_directory "$case_dir"
 process_directory "$control_dir"
 
 echo "Pipeline completed" | tee -a "$log_file"
+
+# Run the next script with diffrent mapper parameters
+echo "Running the next script..."
+chmod +x mapper_linient.sh
+bash mapper_linient.sh || echo "Next pipeline failed."
