@@ -1,6 +1,6 @@
 # miRNA_seq meta-analysis
 
-This repository contains the **miRNA Analysis Pipeline**, developed to analyze publicly available NGS datasets (miRNA-seq) for Gastric Cancer, collected from public databases, like TCGA. The workflow is implemented using automated scripts and R packages for preprocessing, differential expression analysis, meta-analysis, and functional analysis.
+This repository contains the **miRNA Analysis Pipeline**, developed to analyze publicly available NGS datasets (miRNA-seq) for Gastric Cancer, collected from public databases, like TCGA. The workflow is implemented using automated Bash scripts and R packages for preprocessing, differential expression analysis, meta-analysis, and functional analysis.
 
 ## Key Features
 
