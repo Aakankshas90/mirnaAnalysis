@@ -1,3 +1,4 @@
+## test workflow for miRNA analysis
 #!/usr/bin/env nextflow
 
 // Define workflow parameters with meaningful defaults
