@@ -2,6 +2,8 @@
 
 This repository contains the **miRNA Analysis Pipeline**, developed to analyze publicly available NGS datasets (miRNA-seq) for Gastric Cancer, collected from public databases, like TCGA. The workflow is implemented using automated Bash scripts and R packages for preprocessing, differential expression analysis, meta-analysis, and functional analysis.
 
+---
+
 ## Key Features
 
 1. **Preprocessing and Alignment**
@@ -28,6 +30,8 @@ This repository contains the **miRNA Analysis Pipeline**, developed to analyze p
    - Gene ontology (GO) term enrichment is performed using **clusterProfiler**.
    - GO terms are visualized with **ggplot2**.
 
+---
+
 ## Tools and Packages Used
 
 - **Shell Scripting:** Automated preprocessing and alignment steps.
@@ -36,6 +40,8 @@ This repository contains the **miRNA Analysis Pipeline**, developed to analyze p
   - `metafor` for meta-analysis.
   - `clusterProfiler` for functional enrichment analysis.
   - `ggplot2` for data visualization.
+
+---
 
 ## Workflow Overview
 
