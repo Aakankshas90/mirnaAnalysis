@@ -26,10 +26,34 @@ The workflow is organized into sequential steps:
 2. miRNA Quantification (miRDeep2)  
 3. Differential Expression Analysis  
 4. Meta-analysis across studies  
-5. Functional Enrichment Analysis  
+5. Functional Enrichment Analysis
 
----
+```mermaid
+flowchart TD
 
+A[Raw FASTQ] --> B[Preprocessing]
+B --> C[Mapper (miRDeep2)]
+
+C --> D1[Strict Mode]
+C --> D2[Lenient Mode]
+
+D1 --> E[miRDeep2 Analysis]
+D2 --> E
+
+E --> F[Expression Data]
+
+F --> G[DESeq2]
+
+G --> H[Per-study Results]
+
+H --> I[Meta-analysis]
+
+I --> J[Significant miRNAs]
+
+J --> K[Functional Analysis]
+
+K --> L[Biological Interpretation]
+```
 
 ---
 
@@ -152,7 +176,7 @@ source("5_func_analysis.R")
 
 ---
 
-# ⚠️ Notes & Limitations
+## ⚠️ Notes & Limitations
 
 Scripts contain hard-coded paths from the original analysis environment
 Data files are not included in this repository
@@ -161,7 +185,7 @@ Workflow is semi-automated and modular, not fully pipeline-managed
 
 ---
 
-# 🚀 Future Improvements
+## 🚀 Future Improvements
 Convert full workflow to Nextflow pipeline
 Add Docker/Singularity support
 Improve parameterization via config files
@@ -170,14 +194,14 @@ Standardize input formats (e.g., sample sheets)
 
 ---
 
-# 🔗 Related Work
+## 🔗 Related Work
 
 This repository represents the original analysis workflow.
 A scalable and reproducible version (Nextflow-based) is planned.
 
 ---
 
-# 📌 Summary
+## 📌 Summary
 
 This pipeline demonstrates:
 
