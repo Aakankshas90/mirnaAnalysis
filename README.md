@@ -1,51 +1,188 @@
-# miRNA_seq meta-analysis
+# miRNA-seq Meta-analysis Pipeline (Gastric Cancer)
 
-This repository contains the **miRNA Analysis Pipeline**, developed to analyze publicly available NGS datasets (miRNA-seq) for Gastric Cancer, collected from public databases, like TCGA. The workflow is implemented using automated Bash scripts and R packages for preprocessing, differential expression analysis, meta-analysis, and functional analysis.
+This repository contains a modular miRNA-seq analysis workflow developed to perform **cross-study meta-analysis of publicly available gastric cancer datasets**.
 
----
-
-## Key Features
-
-1. **Preprocessing and Alignment**
-   - The script `mirna.sh` performs the following tasks:
-     - Quality check of raw reads using **FastQC**.
-     - Trimming of adapters and low-quality bases using **fastp** or similar tools.
-     - Alignment of reads to the genome and read counts using **miRDeep2**.
-
-2. **Differential Expression Analysis**
-   - Differential expression analysis is conducted on case vs. control datasets from six bioprojects.
-   - The results include:
-     - Log Fold Change (LFC) values.
-     - Standard error estimates for each miRNA.
-
-3. **Meta-Analysis**
-   - Meta-analysis of miRNAs is conducted using the **metafor** package in R.
-   - Filtering criteria:
-     - miRNAs must be detected in multiple studies.
-     - Log Fold Change (LFC) and standard error ratio (SE) are used to refine results.
-   - Outputs include forest plots for selected miRNAs.
-
-4. **Functional Analysis**
-   - Target genes of significant miRNAs are identified using tools such as **miRDB**.
-   - Gene ontology (GO) term enrichment is performed using **clusterProfiler**.
-   - GO terms are visualized with **ggplot2**.
+The pipeline integrates preprocessing, differential expression analysis, meta-analysis, and functional interpretation to identify robust miRNA candidates associated with disease.
 
 ---
 
-## Tools and Packages Used
+## 🧠 Project Context
 
-- **Shell Scripting:** Automated preprocessing and alignment steps.
-- **R Packages:**
-  - `DESeq2` for differential expression analysis.
-  - `metafor` for meta-analysis.
-  - `clusterProfiler` for functional enrichment analysis.
-  - `ggplot2` for data visualization.
+- **Data type:** miRNA-seq (NGS)
+- **Organism:** Homo sapiens
+- **Use case:** Gastric cancer biomarker discovery
+- **Data source:** Public datasets (e.g., GEO / SRA / TCGA-like studies)
+- **Environment:** Originally executed on local/HPC systems with absolute paths
+
+> ⚠️ Note: Scripts retain original paths from the working environment. Update paths before running.
 
 ---
 
-## Workflow Overview
+## 🔬 Pipeline Overview
 
-1. **Preprocessing:** Quality check, trimming, and alignment.
-2. **Differential Expression Analysis:** Case vs. control comparisons for individual datasets.
-3. **Meta-Analysis:** Integration of results across multiple studies.
-4. **Functional Analysis:** GO term enrichment and visualization.
+The workflow is organized into sequential steps:
+
+1. Preprocessing & Mapping  
+2. miRNA Quantification (miRDeep2)  
+3. Differential Expression Analysis  
+4. Meta-analysis across studies  
+5. Functional Enrichment Analysis  
+
+---
+
+
+---
+
+## ⚙️ Step-by-Step Workflow
+
+### 1️⃣ Preprocessing & Mapping
+
+Script: `1_preprocessing_mapper_strict.sh`
+
+- Quality control using **FastQC**
+- Adapter trimming using **fastp**
+- Read processing using **miRDeep2 mapper.pl**
+
+A second version with relaxed parameters:
+
+Script: `2_mapper_lenient.sh`
+
+---
+
+### 2️⃣ miRNA Quantification
+
+Script: `3_mirdeep2.sh`
+
+- miRNA prediction and quantification using **miRDeep2**
+- Generates:
+  - expression profiles
+  - read mappings
+  - result summaries
+
+---
+
+### 3️⃣ Differential Expression Analysis
+
+Script: `4_DESeq2.R`
+
+- Performed separately for each dataset
+- Uses **DESeq2**
+- Outputs:
+  - log2 fold change (LFC)
+  - standard error (SE)
+  - PCA plots
+
+---
+
+### 4️⃣ Meta-analysis
+
+Script: `6_metafor.R`
+
+- Combines results across datasets using **metafor**
+- Method: Random-effects model (REML)
+
+#### Input:
+- EffectSize = log2 fold change (LFC)
+- SE = standard error from DESeq2
+
+#### Filtering:
+- SE > 0 and < 1
+- |EffectSize| ≥ 0.5
+- miRNAs present in ≥ 2 studies
+
+#### Output:
+- Forest plots per miRNA
+- Combined meta-analysis results
+
+---
+
+### 5️⃣ Functional Analysis
+
+Script: `5_func_analysis.R`
+
+- Target gene analysis (external tools such as miRDB)
+- Gene Ontology enrichment using **clusterProfiler**
+- Visualization using **ggplot2**
+
+---
+
+## 🛠 Tools and Packages
+
+### 🔹 Preprocessing
+- FastQC  
+- fastp  
+- miRDeep2  
+
+### 🔹 Statistical Analysis
+- DESeq2  
+- metafor  
+
+### 🔹 Functional Analysis
+- clusterProfiler  
+- org.Hs.eg.db  
+- ggplot2  
+
+---
+
+## ▶️ How to Use
+
+Example (bash workflow):
+
+```bash
+# Step 1: preprocessing
+bash 1_preprocessing_mapper_strict.sh
+
+# Step 2: optional lenient mapping
+bash 2_mapper_lenient.sh
+
+# Step 3: miRNA quantification
+bash 3_mirdeep2.sh
+```
+
+Then run R scripts:
+
+#### Differential expression
+source("4_DESeq2.R")
+
+#### Meta-analysis
+source("6_metafor.R")
+
+#### Functional analysis
+source("5_func_analysis.R")
+
+---
+
+# ⚠️ Notes & Limitations
+
+Scripts contain hard-coded paths from the original analysis environment
+Data files are not included in this repository
+Some steps (e.g., target gene prediction) were performed externally
+Workflow is semi-automated and modular, not fully pipeline-managed
+
+---
+
+# 🚀 Future Improvements
+Convert full workflow to Nextflow pipeline
+Add Docker/Singularity support
+Improve parameterization via config files
+Automate multi-dataset processing
+Standardize input formats (e.g., sample sheets)
+
+---
+
+# 🔗 Related Work
+
+This repository represents the original analysis workflow.
+A scalable and reproducible version (Nextflow-based) is planned.
+
+---
+
+# 📌 Summary
+
+This pipeline demonstrates:
+
+- Multi-dataset miRNA-seq processing
+- Cross-study meta-analysis
+- Integration of statistical and biological interpretation
+
+It reflects real-world bioinformatics analysis performed during research work.
