@@ -28,31 +28,32 @@ The workflow is organized into sequential steps:
 4. Meta-analysis across studies  
 5. Functional Enrichment Analysis
 
+
 ```mermaid
 flowchart TD
 
 A[Raw FASTQ] --> B[Preprocessing]
-B --> C[Mapper (miRDeep2)]
+B --> C[Mapper miRDeep2]
 
-C --> D1[Strict Mode]
-C --> D2[Lenient Mode]
+C --> D1[Strict mode]
+C --> D2[Lenient mode]
 
-D1 --> E[miRDeep2 Analysis]
+D1 --> E[miRDeep2 analysis]
 D2 --> E
 
-E --> F[Expression Data]
+E --> F[Expression data]
 
 F --> G[DESeq2]
 
-G --> H[Per-study Results]
+G --> H[Per study results]
 
-H --> I[Meta-analysis]
+H --> I[Meta analysis]
 
 I --> J[Significant miRNAs]
 
-J --> K[Functional Analysis]
+J --> K[Functional analysis]
 
-K --> L[Biological Interpretation]
+K --> L[Biological interpretation]
 ```
 
 ---
