@@ -166,6 +166,7 @@ bash 3_mirdeep2.sh
 
 Then run R scripts:
 
+```R
 #### Differential expression
 source("4_DESeq2.R")
 
@@ -174,6 +175,7 @@ source("6_metafor.R")
 
 #### Functional analysis
 source("5_func_analysis.R")
+```
 
 ---
 
